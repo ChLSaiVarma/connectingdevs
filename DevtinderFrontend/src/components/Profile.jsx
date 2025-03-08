@@ -9,6 +9,6 @@ const Profile = () => {
         <EditProfile user={user} />
       </div>
     )
-  );
+  ); 
 };
 export default Profile;
