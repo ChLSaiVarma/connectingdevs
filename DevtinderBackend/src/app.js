@@ -6,12 +6,20 @@ const PORT = process.env.PORT || 7777;
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
+// Get the frontend origin from environment variable
+const allowedOrigin = process.env.REACT_APP_API_ORIGIN || "http://localhost:5173";
+
+// CORS setup: Allow specific origin and enable credentials
 app.use(
   cors({
-    origin: process.env.REACT_APP_API_ORIGIN,
-    credentials: true,
+    origin: allowedOrigin,  // Use the correct frontend origin
+    credentials: true,      // Allow cookies to be sent
   })
 );
+
+// Optionally handle pre-flight requests
+app.options('*', cors());
+
 app.use(express.json());
 app.use(cookieParser());
 
