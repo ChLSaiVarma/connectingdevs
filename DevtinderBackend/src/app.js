@@ -7,13 +7,16 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
 // Get the frontend origin from environment variable
-const allowedOrigin = process.env.REACT_APP_API_ORIGIN || "http://localhost:5173";
+// const allowedOrigin = process.env.REACT_APP_API_ORIGIN || "http://localhost:5173";
+const allowedOrigin = "http://localhost:5173";
 
 // CORS setup: Allow specific origin and enable credentials
 app.use(
   cors({
     origin: allowedOrigin,  // Use the correct frontend origin
     credentials: true,      // Allow cookies to be sent
+    allowedHeaders: ["Content-Type", "Authorization"], // Ensure headers are allowed
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
   })
 );
 
