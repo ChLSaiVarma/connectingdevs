@@ -7,7 +7,7 @@ const User = require("../models/user");
 
 requestRouter.post(
   "/request/send/:status/:toUserId",
-  userAuth,
+  // userAuth,
   async (req, res) => {
     try {
       const fromUserId = req.user._id;
@@ -59,7 +59,7 @@ requestRouter.post(
 
 requestRouter.post(
   "/request/review/:status/:requestId",
-  userAuth,
+  // userAuth,
   async (req, res) => {
     try {
       const loggedInUser = req.user;
